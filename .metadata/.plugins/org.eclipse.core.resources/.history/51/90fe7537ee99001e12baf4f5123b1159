@@ -1,0 +1,115 @@
+package com.bank.Entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class Banks {
+    @Id
+    @GeneratedValue
+    private int EmpId;
+    @Column(name = "Ac")
+    private String Ac;
+    private String Name;
+    private String Password;
+    private int Amount;
+    private String Adress;
+    private String MobNo;
+    private String Status;
+
+    public Banks(int empId, String ac, String name, String password, int amount, String adress, String mobNo, String status) {
+        EmpId = empId;
+        Ac = ac;
+        Name = name;
+        Password = password;
+        Amount = amount;
+        Adress = adress;
+        MobNo = mobNo;
+        Status = status;
+    }
+
+    public Banks() {
+		// TODO Auto-generated constructor stub
+    	super();
+	}
+
+	public int getEmpId() {
+        return EmpId;
+    }
+
+    public String getAc() {
+        return Ac;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public int getAmount() {
+        return Amount;
+    }
+
+    public String getAdress() {
+        return Adress;
+    }
+
+    public String getMobNo() {
+        return MobNo;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setEmpId(int empId) {
+        EmpId = empId;
+    }
+
+    public void setAc(String ac) {
+        Ac = ac;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public void setAmount(int amount) {
+        Amount = amount;
+    }
+
+    public void setAdress(String adress) {
+        Adress = adress;
+    }
+
+    public void setMobNo(String mobNo) {
+        MobNo = mobNo;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Banks{" +
+                "EmpId=" + EmpId +
+                ", Ac=" + Ac +
+                ", Name='" + Name + '\'' +
+                ", Password='" + Password + '\'' +
+                ", Amount=" + Amount +
+                ", Adress='" + Adress + '\'' +
+                ", MobNo=" + MobNo +
+                ", Status='" + Status + '\'' +
+                '}';
+    }
+}

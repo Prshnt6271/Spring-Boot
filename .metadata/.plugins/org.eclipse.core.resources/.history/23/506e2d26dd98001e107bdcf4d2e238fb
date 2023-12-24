@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Background Image Example</title>
+    <style>
+    /* Style the scrolling text container */
+.scrolling-text-container {
+    overflow: hidden; /* Hide any overflowing content */
+      
+    text-align: center; /* Center-align the text */
+    padding: 20px 0; /* Add padding for spacing */
+}
+
+/* Style the scrolling text */
+.scrolling-text {
+    animation: scrollText 15s linear infinite; /* Apply animation */
+}
+
+/* Define the animation keyframes */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Scroll to the left */
+    }
+}
+    
+        body {
+         
+            background-image: url('https://media.istockphoto.com/id/1202705835/vector/online-internet-banking-3d-isometric-banner-a-bank-building-with-columns-consisting-of-a.jpg?s=1024x1024&w=is&k=20&c=BJkaaJADagug0rg0TnFbmKzGUeByCQiPz3FZGpG6fg0=');
+            
+            /* Define background properties */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Fixed background (doesn't scroll with content) */
+        }
+
+        /* Add additional styles for your content */
+        .content {
+            text-align: center;
+            padding: 100px;
+            color: white;
+        }
+        
+          .content h1 {
+         
+            color: white;
+             
+        }
+        
+        /* Style the navigation bar */
+.navbar {
+    background-color: black; /* Background color of the navbar */
+    overflow: hidden; /* Hide any overflowing content */
+    
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: left; /* Float the links to create a horizontal layout */
+    display: block; /* Display the links as blocks for styling */
+    color: white; /* Text color of the links */
+    text-align: center; /* Center-align the text */
+    padding: 14px 16px; /* Add some padding for spacing */
+    text-decoration: none; /* Remove underlines from links */
+      margin-right: 85px;
+}
+
+/* Change link color on hover */
+.navbar a:hover {
+    background-color: #ddd; /* Background color on hover */
+    color: black; /* Text color on hover */
+}
+
+
+/* Style the main footer container */
+footer {
+    
+    color: #fff;
+    padding: 20px 0;
+}
+
+/* Style the footer content */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Style individual footer sections */
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+/* Style social media icons */
+.socials {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.socials a {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Style quick links */
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 10px;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #ffd700; /* Change link color on hover to gold */
+}
+
+/* Style contact form */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+/* Style the submit button */
+.btn-primary {
+    background-color: #ffd700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #FFC107; /* Change button color on hover */
+}
+
+/* Style the footer bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+  
+    font-size: 14px;
+}
+
+        
+    </style>
+</head>
+<body>
+
+<div class="scrolling-text-container">
+    <div class="scrolling-text">
+        <h1>Welcome to Our Banking Website - Your Trusted Banking Partner</h1>
+    </div>
+</div>
+
+<div class="navbar">
+    <a href="Home.html">Home</a>
+  <a th:href="@{/Balance}">Balance</a>
+    <a href="@{/deposit}">Deposit</a>
+    <a href="Withdraw.html">Withdraw</a>
+    <a href="transfer.html">Transfer</a>
+    <a href="Close.html">Close A/C</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Logout">Log Out</a>
+</div>
+
+<div class="content">
+    <h1>Banking Management System</h1>
+    <h2>This is our services.</h2>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel augue ultrices.</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Loans</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact-form">
+            <h2>Contact Us</h2>
+            <form action="#">
+                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address">
+                <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message"></textarea>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2023 Banking Website | Designed by Your Company Name
+    </div>
+</footer>
+
+</body>
+</html>

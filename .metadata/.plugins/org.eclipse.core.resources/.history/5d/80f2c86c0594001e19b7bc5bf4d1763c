@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result </title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="mx-auto text-center">
+        <h1 class="mb-0 text-white bg-dark border-bottom border-white pb-3"><i>STUDENT RESULT </i></h1>
+        <h2 class="text-white bg  border-bottom border-white pb-3"><i>SPRING-BOOT-CURD</i></h2>
+    </div>
+</nav>
+
+<div class="container ">
+    <div class="row mt-3">
+        <h1><i>List Of Students.......</i></h1>
+    </div>
+    <div th:if="${successMessage}" class="alert alert-primary" role="alert">
+        <h5><i th:text="${successMessage}"></i></h5>
+    </div>
+
+    <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h5><i th:text="${errorMessage}"></i></h5>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Hibernate</th>
+            <th>Spring</th>
+            <th>SpringBoot</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+<!--                <td th:text="${student.hibernate}"></td>
+-->                <td th:text="${student.spring}"></td>
+               <td th:text="${student.springBoot}"></td>
+             <td th:text="${student.total}"></td>
+         <!--       <td th:text="${student.p}"></td>
+                <td th:text="${student.g}"></td>-->
+                <td>
+                    <!-- Update link -->
+                    <a th:href="@{'/update/' + ${student.id}}" class="btn btn-primary">Update</a>
+                    <!-- Delete link -->
+                    <a th:href="@{'/delete/' + ${student.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

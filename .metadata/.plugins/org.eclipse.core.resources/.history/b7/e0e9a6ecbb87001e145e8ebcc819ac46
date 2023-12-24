@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Details</title>
+</head>
+<body>
+
+    <h1>Bill Details</h1>
+
+    <p>Customer ID: <%= request.getAttribute("customerId") %></p>
+    <p>Customer Name: <%= request.getAttribute("customerName") %></p>
+    <p>Mobile Number: <%= request.getAttribute("mobileNumber") %></p>
+    <p>Product Name: <%= request.getAttribute("productName") %></p>
+    <p>Price: $<%= request.getAttribute("price") %></p>
+    <p>Quantity: <%= request.getAttribute("quantity") %></p>
+
+    <p>Total: $<%= request.getAttribute("total") %></p>
+    <p>Discount: $<%= request.getAttribute("discount") %></p>
+    <p>GST: $<%= request.getAttribute("gst") %></p>
+
+</body>
+</html>

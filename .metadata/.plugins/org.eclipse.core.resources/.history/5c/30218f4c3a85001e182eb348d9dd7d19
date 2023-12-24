@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Image Example</title>
+   </head>
+<body>
+
+ <div class="scrolling-text-container">
+        <div class="scrolling-text">
+            <h1>Welcome to our Spring boot project</h1>
+        </div>
+    </div>
+
+<div class="navbar">
+    <a href="Home.html">Home</a>
+    <a href="/about">About</a>
+    <a href="/login">Login</a>
+    <a href="/regis">regis</a>
+    <a href="/cntact">Contact</a>	
+</div>
+    <div class="content">
+        <h1>This is our Spring Boot</h1>
+  
+    </div>
+    
+    <footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel augue ultrices.</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact-form">
+            <h2>Contact Us</h2>
+            <form action="#">
+                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address">
+                <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message"></textarea>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2023 Banking Website | Designed by Your Company Name
+    </div>
+</footer>
+    
+</body>
+</html>

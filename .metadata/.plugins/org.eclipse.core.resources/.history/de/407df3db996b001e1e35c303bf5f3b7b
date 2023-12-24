@@ -1,0 +1,50 @@
+package com.boot.project.controller;
+
+import java.util.List;
+
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import com.boot.project.model.Book;
+import com.boot.project.service.BookService;
+
+import jakarta.validation.Path.ReturnValueNode;
+
+@Controller
+@RequestMapping("/books")
+public class BookController {
+	@Autowired
+	BookService bookService;
+	@GetMapping("viewBooks")
+	public String getAllBooks(Model model) {
+		
+		// read the books and send the book to view layer using model object
+		List<Book> books=bookService.getbooks();
+		model.addAttribute("books",books);
+		return "view-books";
+		
+	}
+	
+	@GetMapping("/addbook")
+	
+	public String addBookPage() {
+		
+		return "add-book";
+	}
+	
+	@PostMapping("/savebook")
+	
+	public String savebook(@ModelAttribute Book book) {
+		bookService.savebookData(book);
+		return "redirect:/books/viewBooks";
+	}
+	
+
+}

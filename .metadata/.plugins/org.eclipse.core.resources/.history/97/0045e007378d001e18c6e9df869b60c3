@@ -1,0 +1,35 @@
+package com.Springbootcurd;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.Springbootcurd.Entity.Student;
+import com.Springbootcurd.Repo.StudentRepo;
+
+@SpringBootApplication
+public class SpringBootCurdApplication implements CommandLineRunner {
+	
+	@Autowired
+	private StudentRepo repo;
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootCurdApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Student s1=new Student(102,"rahul","react",123.00);
+		Student s2=new Student(103,"prshnt","spring",134.00);
+		Student s3=new Student(104,"naman","kafka",345.00);
+		Student s4=new Student(103,"vishal","python",126.00);
+		repo.save(s3);	
+		repo.save(s4);	
+		
+		
+	}
+
+}

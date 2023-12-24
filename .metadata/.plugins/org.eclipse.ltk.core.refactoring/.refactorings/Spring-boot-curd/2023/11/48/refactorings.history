@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;StudentRepo.java&apos; to &apos;Spring-boot-curd/src/main/java/com.Springbootcurd.Repo&apos;&#x0D;&#x0A;- Original project: &apos;Spring-boot-curd&apos;&#x0D;&#x0A;- Destination element: &apos;Spring-boot-curd/src/main/java/com.Springbootcurd.Repo&apos;&#x0D;&#x0A;- Original element: &apos;com.Springbootcurd.StudentRepo.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.Springbootcurd.Repo" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.Springbootcurd{StudentRepo.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1701096636414" units="1" version="1.0"/>
+</session>

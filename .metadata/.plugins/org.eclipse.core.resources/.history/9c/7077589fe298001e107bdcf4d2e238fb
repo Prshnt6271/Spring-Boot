@@ -1,0 +1,48 @@
+package com.bank.Service;
+import com.bank.Entity.Banks;
+import com.bank.Repo.BankRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class BankServiceImpl implements BankService {
+
+	  @Autowired
+	    private BankRepo repo;
+
+	    @Override
+	    public void processRegistration(Banks banks) {
+	        // Implement your business logic here if needed
+	        repo.save(banks);
+	    }
+
+		@Override
+		public Banks updatecustomer(Banks bank) {
+			
+		Banks prbalance=repo.findById(bank.getAc()).get();
+		
+		
+		double totbal=prbalance.getAmount()+bank.getAmount();
+		
+		
+		bank.setAmount(totbal);
+		
+		
+			Bank b=repo.save(bank);
+		
+		
+			
+			return bank;
+		}	@Override
+		public Banks getCustomer(String Ac, String Name, String Password,int EmpId) {
+			Banks getone=repo.findById(EmpId).get();
+			
+			
+			return getone;
+		}
+		
+	
+	    
+
+}

@@ -1,0 +1,29 @@
+package com.curd.Controller;
+
+//ApiController.java
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.curd.service.ApiService;
+
+@RestController
+
+public class ApiController {
+
+ @Autowired
+ private ApiService apiService;
+
+ @RequestMapping("/")
+ public String Login() {
+	 System.out.println("hello");
+     return "login.html";
+ }
+ @PostMapping("/authenticate")
+ public String authenticateUser(@RequestParam String loginId, @RequestParam String password) {
+	 
+     return apiService.authenticateUser(loginId, password);
+ }
+
+ // Implement methods for createCustomer, getCustomerList, deleteCustomer, and updateCustomer
+}

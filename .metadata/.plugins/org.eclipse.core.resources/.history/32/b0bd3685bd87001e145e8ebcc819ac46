@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+             background-image: url('https://media.istockphoto.com/id/1401555201/photo/weak-password-words-on-the-screen-in-the-dark.jpg?s=2048x2048&w=is&k=20&c=jk_9RYBXNLtzJ1_sl3N3OAeHdyALGDcV_5GZISbjVgE=');
+               background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Fixed background (doesn't scroll with content) */
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bill Details</h1>
+
+    <p>Customer ID: <%= request.getAttribute("customerId") %></p>
+    <p>Customer Name: <%= request.getAttribute("customerName") %></p>
+    <p>Mobile Number: <%= request.getAttribute("mobileNumber") %></p>
+    <p>Product Name: <%= request.getAttribute("productName") %></p>
+    <p>Price: <%= request.getAttribute("price") %></p>
+    <p>Quantity: <%= request.getAttribute("quantity") %></p>
+
+    <p>Total: <%= request.getAttribute("total") %></p>
+    <p>Discount: <%= request.getAttribute("discount") %></p>
+    <p>GST: <%= request.getAttribute("gst") %></p>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result </title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+<body>
+    <center>
+        <h1>CRUD APPLICATION FOR STUDENT MARKS RESULT</h1>
+       <!-- <a href="/add">Click to add Students</a>
+        <p></p>
+        <a href="/view">Click to View All Users</a>-->
+        
+           <!-- Update link -->
+                    <a th:href="@{'/add'}" class="btn btn-primary">Add Students</a>
+                    <!-- Delete link -->
+                    <a th:href="@{'/view'}" class="btn btn-danger">View All Users</a>
+    </center>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('https://cdn.pixabay.com/photo/2019/10/19/16/30/poverty-4561704_1280.jpg');
+        }
+
+        .navbar {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            margin-right: 80px;
+        }
+
+        /* Change link color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="reset"] {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .label-custom-color { color: red; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a th:href="@{/home}">Home</a>
+    <a th:href="@{/balance}">Balance</a>
+    <a th:href="@{/deposit}">Deposit</a>
+    <a th:href="@{/withdraw}">Withdraw</a>
+    <a th:href="@{/transfer}">Transfer</a>
+    <a th:href="@{/close}">Close A/C</a>
+    <a th:href="@{/aboutUs}">About Us</a>
+</div>
+<div class="container">
+    <h1>Balance Form</h1>
+    <form th:action="@{/balance}" method="post">
+        <label for="account_number" th:class="${'label-custom-color'}">Account Number:</label>
+        <input type="text" id="account_number" name="account_number" required>
+
+        <label for="name" th:class="${'label-custom-color'}">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="password" th:class="${'label-custom-color'}">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="EmpId" th:class="${'label-custom-color'}">Employee ID:</label>
+        <input type="number" id="EmpId" name="EmpId" required>
+
+        <input type="submit" value="Submit">
+        <button type="reset">Clear</button>
+    </form>
+</div>
+</body>
+</html>

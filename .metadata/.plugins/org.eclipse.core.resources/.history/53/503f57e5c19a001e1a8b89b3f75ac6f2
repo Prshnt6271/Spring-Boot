@@ -1,0 +1,96 @@
+package com.curd.service;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
+//ApiService.java
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class ApiService {
+
+ private final String BASE_URL = "https://qa2.sunbasedata.com/sunbase/portal/api/";
+
+ public String authenticateUser(String loginId, String password) {
+	 try {
+		 
+		  String url = BASE_URL + "assignment_auth.jsp";
+		     RestTemplate restTemplate = new RestTemplate();
+
+		     HttpHeaders headers = new HttpHeaders();
+		     headers.setContentType(MediaType.APPLICATION_JSON);
+
+		     String body = String.format("{\"login_id\":\"%s\",\"password\":\"%s\"}", loginId, password);
+		     System.out.println(body+" id"+loginId);
+		     HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
+
+		     ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestEntity, String.class);
+		     System.out.println("code"+responseEntity);
+		     if (responseEntity.getStatusCode() == HttpStatus.OK) {
+		    	 System.out.print("x--"+responseEntity.getBody());
+		    	 String accessToken = "{\"access_token\":\"dGVzdEBzdW5iYXNlZGF0YS5jb206VGVzdEAxMjM=\"}";
+		    	 System.out.print("yyy--"+accessToken);
+		    	 if (accessToken != null && !accessToken.isEmpty()) {
+		    		 System.out.println("ABCD");
+		    		 getCustomerList(accessToken);
+		             return "customerList"; // Redirect to the customer list page
+		         } else {
+		             // Handle authentication failure
+		             return "login"; // or return an error page
+		         }
+		     } else {
+		         System.out.println("error");
+		    	 
+		         return null;
+		     }
+		
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+    return "";
+ }
+
+ // Implement methods for createCustomer, getCustomerList, deleteCustomer, and updateCustomer
+ public String getCustomerList(String accessToken) throws URISyntaxException {
+//     String baseUrl = null;
+     System.out.println("heyyyy");
+	// Set the endpoint URL
+     
+     String url =  "https://qa2.sunbasedata.com/sunbase/portal/api/assignment.jsp?cmd=get_customer_list";
+//     @SuppressWarnings("unused")
+     try {
+    	 System.out.println("getcustomer");
+    	 URI uri = new URI(url);
+         // Create headers with the access token
+         HttpHeaders headers = new HttpHeaders();
+         headers.add("Authorization", "Bearer " + accessToken);
+
+         // Create a RequestEntity with the headers
+         RequestEntity<Void> requestEntity = new RequestEntity<>(headers, HttpMethod.GET, uri);
+
+         // Make the HTTP request
+         ResponseEntity<String> responseEntity = new RestTemplate().exchange(requestEntity, String.class);
+
+         // Process the response
+         if (responseEntity.getStatusCode().is2xxSuccessful()) {
+             // Successful response, return the customer list
+        	 System.out.println("rsponse"+responseEntity.getBody());
+             return responseEntity.getBody();
+         } else {
+             System.out.println("error in auth");
+             return null;
+         }
+	} catch (Exception e) {
+		System.out.println("exception"+e);
+	}
+	return url;
+ }
+}

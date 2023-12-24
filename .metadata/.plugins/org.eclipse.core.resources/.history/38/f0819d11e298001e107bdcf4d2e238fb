@@ -1,0 +1,72 @@
+
+package com.bank.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
+import com.bank.Entity.Banks;
+import com.bank.Service.BankService;
+
+
+@Controller
+public class BankController {
+	   @Autowired
+	    private BankService bankService;
+	   
+    @RequestMapping("/")
+    public String home() {
+        return "Landing";
+    }
+    
+    @GetMapping("/newAccount")
+    public String newAccount(Model model) {
+        model.addAttribute("banks", new Banks());
+        return "newAcc";  // Assuming "newAccount.html" is your template
+    }
+
+    @PostMapping("/saveAccount")
+    public String saveAccount(@ModelAttribute Banks banks) {
+        bankService.processRegistration(banks);
+        return "success";
+    }
+    
+    @GetMapping("/Balance")
+    public String showBalancePage() {
+        return "balance"; // This corresponds to the HTML file name (Balance.html)
+    }
+    
+
+    @RequestMapping("/balance")
+    public String showBalance(@RequestParam String account_number, @RequestParam String name,
+                              @RequestParam String password, @RequestParam int EmpId,ModelMap model) {
+        String iname = name;
+        String accountNo = account_number;
+        Banks b1 = bankService.getCustomer(account_number, name, password,EmpId);
+        String s = null;
+
+        if (b1 != null && iname.equals(b1.getName()) && accountNo.equals(b1.getAc())) {
+            model.put("Ano", b1.getAc());
+            model.put("Name", b1.getName());
+            model.put("Amount", b1.getAmount());
+            System.err.println(b1.getAmount());
+        } else {
+            s = "No such account found. Reassure inputs once.....";
+        }
+
+        model.put("Message", s);
+
+        return "showbalance";
+    }
+    
+    @GetMapping("/deposit")
+    public String deposit() {
+        return "deposit"; // This corresponds to the HTML file name (Balance.html)
+    }
+}
+    
+    
+
+   

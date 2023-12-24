@@ -1,0 +1,50 @@
+package com.example.dataEx.Controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import pojo.md;
+@Controller
+public class TestController {
+
+    @GetMapping("/")
+    public String showForm(Model model) {
+        // Add an empty instance of your model class to the model
+        model.addAttribute("md", new md());
+        return "form";
+    }
+
+    @PostMapping("/res")
+    public String calculate(@ModelAttribute md md, Model model) {
+        // Use the provided model object directly
+        // You can perform additional validation or business logic here
+
+        // Calculate total, discount, and GST
+        double total = calculateTotal(md.getPrice1(), md.getQuantity());
+        double discount = calculateDiscount(total);
+        double gst = 1000.00;
+
+        // Add data to the model
+        model.addAttribute("md", md);
+        model.addAttribute("total", total);
+        model.addAttribute("discount", discount);
+        model.addAttribute("gst", gst);
+
+        return "bill";  // Assuming "bill" is the name of your view template
+    }
+
+    private double calculateTotal(double price, int quantity) {
+        return price * quantity;
+    }
+
+    private double calculateDiscount(double total) {
+        if (total < 2500) {
+            return total * 0.1;  // 10% discount
+        } else if (total >= 2500 && total < 5000) {
+            return total * 0.15;  // 30% discount
+        } else {
+            return 0.3;  // No discount
+        }
+    }
+}

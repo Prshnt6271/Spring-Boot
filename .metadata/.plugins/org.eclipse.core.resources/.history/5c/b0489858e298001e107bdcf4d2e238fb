@@ -1,0 +1,16 @@
+package com.bank.Service;// BankService.java
+
+import com.bank.Entity.Banks;
+
+
+public interface BankService {
+	
+	public void processRegistration(Banks banks);
+
+	public Banks getCustomer(String account_number, String name, String password,int EmpId);
+
+	public Banks updatecustomer(Banks bank);
+
+	
+	
+}

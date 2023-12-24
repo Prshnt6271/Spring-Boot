@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Add your head content here -->
+</head>
+
+<body>
+    <h1>Bill Details</h1>
+    
+    <p>Customer ID: <span th:text="${customerId}">C123</span></p>
+    <p>Customer Name: <span th:text="${customerName}">John Doe</span></p>
+    <p>Mobile Number: <span th:text="${mobileNumber}">1234567890</span></p>
+    <p>Product Name: <span th:text="${productName}">Laptop</span></p>
+    <p>Price: $<span th:text="${price}">0.00</span></p>
+    <p>Quantity: <span th:text="${quantity}">1</span></p>
+
+    <p>Total: $<span th:text="${total}">0.00</span></p>
+    <p>Discount: $<span th:text="${discount}">0.00</span></p>
+    <p>GST: $<span th:text="${gst}">0.00</span></p>
+
+    <!-- Add more content or formatting as needed -->
+
+</body>
+
+</html>
